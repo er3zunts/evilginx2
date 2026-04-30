@@ -1,7 +1,7 @@
 TARGET=evilginx
 PACKAGES=core database log parser
 
-.PHONY: all build clean
+.PHONY: all build clean install
 all: build
 
 build:
@@ -16,3 +16,7 @@ install: build
 clean:
 	@go clean
 	@rm -f ./build/$(TARGET)
+
+# run target: convenience shortcut to launch after building
+run: build
+	@./build/$(TARGET)
